@@ -32,6 +32,8 @@
             <Label Text="{Binding GreskaPotvrdjenaLozinka}" TextColor="Red" FontSize="Micro" ></Label>
                 <Button Text="Odaberite sliku" Clicked="Button_Clicked" BackgroundColor="DodgerBlue" TextColor="Azure"></Button>
                 <Label x:Name="txtFileName" HorizontalTextAlignment="Start"  VerticalOptions="CenterAndExpand" TextColor="DodgerBlue"></Label>
+                <Label Text="{Binding GreskaSlika}" TextColor="Red" FontSize="Micro" ></Label>
+
                 <Button Command="{Binding RegistrujSeCommand}" Text="Prijavi se"></Button>
               
             </StackLayout>

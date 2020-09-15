@@ -32,27 +32,33 @@ namespace AutoSkola.Mobile.Views
                 };
             //pretraga kandidata sa tim korisnickim nalogom
             var kandidat = await _kandidati.Get<List<MKandidat>>(searchKandidat);
-
-            var searchPrakticno = new TerminRCSearchRequest()
+            if (kandidat.Count() != 0)
             {
-                KandidatId = kandidat[0].Id,
-                Prakticno = true,
-                PrikazUXamarinu = true
-            };
-            var searchTeorija = new TerminRCSearchRequest()
+                var searchPrakticno = new TerminRCSearchRequest()
+                {
+                    KandidatId = kandidat[0].Id,
+                    Prakticno = true,
+                    PrikazUXamarinu = true
+                };
+                var searchTeorija = new TerminRCSearchRequest()
+                {
+                    KandidatId = kandidat[0].Id,
+                    Teorija = true,
+                    PrikazUXamarinu = true
+                };
+                var searchZ = new ZahtjeviSearchRequest()
+                {
+                    KandidatiId = kandidat[0].Id,
+                    PrikazUXamarinu = true
+                };
+                await model.VratiBrojCasovaPrakticno(searchPrakticno);
+                await model.VratiBrojCasovaTeorija(searchTeorija);
+                await model.VratiInfoUsluga(searchZ);
+            }
+            else
             {
-                KandidatId = kandidat[0].Id,
-                Teorija = true,
-                PrikazUXamarinu = true
-            };
-            var searchZ = new ZahtjeviSearchRequest()
-            {
-                KandidatiId= kandidat[0].Id,
-                PrikazUXamarinu=true
-            };
-            await model.VratiBrojCasovaPrakticno(searchPrakticno);
-            await model.VratiBrojCasovaTeorija(searchTeorija);
-            await model.VratiInfoUsluga(searchZ);
+                await Application.Current.MainPage.DisplayAlert("Nema usluga!", "Nemate aktivnih usluga", "OK");
+            }
         }
     }
 }

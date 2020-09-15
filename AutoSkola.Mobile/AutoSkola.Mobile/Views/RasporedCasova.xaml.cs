@@ -76,7 +76,7 @@ namespace AutoSkola.Mobile.Views
             }
             catch(Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Obavjestenje!", ex.Message, "OK");
+                await Application.Current.MainPage.DisplayAlert("Obavjestenje!","Nemate termine", "OK");
             }
         }
     }

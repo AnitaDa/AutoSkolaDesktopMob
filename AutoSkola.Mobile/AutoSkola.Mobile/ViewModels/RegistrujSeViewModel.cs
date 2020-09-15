@@ -4,6 +4,7 @@ using AutoSkola.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -38,6 +39,7 @@ namespace AutoSkola.Mobile.ViewModels
         string _GreskaLozinka;
         string _GreskaPotvrdnaLozinka;
         string _GreskaEmail;
+        string _GreskaSlika;
         public RegistrujSeViewModel()
         {
             RegistrujSeCommand = new Command(async () => await RegistrujSe());
@@ -53,6 +55,12 @@ namespace AutoSkola.Mobile.ViewModels
             get { return _Prezime; }
             set { SetProperty(ref _Prezime, value); }
         }
+        public string GreskaSlika
+        {
+            get { return _GreskaSlika; }
+            set { SetProperty(ref _GreskaSlika, value); }
+        }
+        
         public string KorisnickoIme
         {
             get { return _KorisnickoIme; }
@@ -103,7 +111,7 @@ namespace AutoSkola.Mobile.ViewModels
             get { return _GreskaLozinka; }
             set { SetProperty(ref _GreskaLozinka, value); }
         }
-        public string GreskaPotvrdnaLozinka
+        public string GreskaPotvrdjenaLozinka
         {
             get { return _GreskaPotvrdnaLozinka; }
             set { SetProperty(ref _GreskaPotvrdnaLozinka, value); }
@@ -164,7 +172,14 @@ namespace AutoSkola.Mobile.ViewModels
                 GreskaPrezime = null;
                  PrezimeOK = true;
             }
-
+            
+                bool SlikaOk = false;
+            GreskaSlika = "Obavezno polje";
+            if (Slika != null)
+            {
+                GreskaSlika = null;
+                SlikaOk = true;
+            }
             bool KImeOK = false;
             GreskaKorisnickoIme = "Obavezno polje";
             if (KorisnickoIme != null)
@@ -180,12 +195,14 @@ namespace AutoSkola.Mobile.ViewModels
                 LozinkaOK = true;
             }
             bool PotvrdnaLozinkaOK = false;
-            GreskaPotvrdnaLozinka = "Obavezno polje";
+            GreskaPotvrdjenaLozinka = "Obavezno polje";
             if (PotvrdnaLozinka != null)
             {
-                GreskaPotvrdnaLozinka = null;
+                GreskaPotvrdjenaLozinka = null;
                 PotvrdnaLozinkaOK = true;
             }
+            
+            
             string RegEmail = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
             bool EmailOK = false;
             GreskaEmail = "Format emaila nije ispravan!";
@@ -197,7 +214,7 @@ namespace AutoSkola.Mobile.ViewModels
                     EmailOK = true;
                 }
             }
-            if(ImeOK && PrezimeOK && LozinkaOK && PotvrdnaLozinkaOK && KImeOK && EmailOK)
+            if(ImeOK && PrezimeOK && LozinkaOK && PotvrdnaLozinkaOK && KImeOK && EmailOK && SlikaOk)
             return true;
             return false;
         }

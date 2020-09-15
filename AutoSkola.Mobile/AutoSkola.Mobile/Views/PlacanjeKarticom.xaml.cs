@@ -36,7 +36,14 @@ namespace AutoSkola.Mobile.Views
             UkupnoZaUplatu = ukupnoZaUplatu;
             BindingContext = model = new PlacanjeKarticomViewModel();
         }
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BrojKartice.Text = "4242424242424242";
+            MjesecIsteka.Text = "12";
+            GodinaIsteka.Text = "2020";
+            CVV.Text = "500";
+        }
         private async void Button_Clicked(object sender, EventArgs e)
         {
             karticaIspravna = true;

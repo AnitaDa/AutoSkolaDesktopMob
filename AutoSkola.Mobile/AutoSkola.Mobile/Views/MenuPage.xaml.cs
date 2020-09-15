@@ -46,7 +46,7 @@ namespace AutoSkola.Mobile.Views
             //{
                 menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                //new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.Pocetna, Title="Pocetna" },
                 new HomeMenuItem {Id = MenuItemType.RasporedCasova, Title="Raspored časova" },
                 new HomeMenuItem {Id = MenuItemType.SalnjeZahtjeva, Title="Posalji zahtjev" },

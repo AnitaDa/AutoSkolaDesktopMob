@@ -21,10 +21,10 @@ namespace AutoSkola.WebAPI.Database
             AddModel(context);
             AddVozilo(context);
             AddUsluge(context);
-            AddUloga(context);
-            //AddKorisnikUloga(context);
+            AddUloga(context);         
             AddKorisnik(context);//dodaje se korisnik,Uloga, KorisnikUloga, Uposlenici,Kandidati, TipUposlenika,UposlTipUposl,LjekskarkoUvjerenje
             AddRasporedPolaganja(context);
+            Console.WriteLine("SVE DODANO!");
         }
 
         private static int GenerisiInt(int from, int to)
@@ -65,7 +65,7 @@ namespace AutoSkola.WebAPI.Database
 
             context.SaveChanges();
 
-            Console.WriteLine("Kategorije added");
+        
 
         }
 
@@ -215,7 +215,7 @@ namespace AutoSkola.WebAPI.Database
            
             context.SaveChanges();
 
-            Console.WriteLine("Korisnici dodani");
+           
 
             var korisnikUloga1 = new KorisnikUloga()
             {
@@ -288,7 +288,7 @@ namespace AutoSkola.WebAPI.Database
             context.SaveChanges();
 
 
-            Console.WriteLine("Uloge dodane");
+           
 
             var path = Path.Combine(Directory.GetCurrentDirectory(), "Slike", "slika.png");
             byte[] slika = File.ReadAllBytes(path);
@@ -414,7 +414,7 @@ namespace AutoSkola.WebAPI.Database
             context.SaveChanges();
 
 
-            Console.WriteLine("Uposlenici dodani");
+            
             //Utisci
             context.Utisak.AddRange(
                 new Utisak { KandidatId=kandidat.Entity.Id,UposlenikId=instruktor_db.Entity.Id,Ocjena=4},
@@ -431,7 +431,7 @@ namespace AutoSkola.WebAPI.Database
                 new Utisak { KandidatId = kandidat55.Entity.Id, UposlenikId = instruktor5_db.Entity.Id, Ocjena = 5 }
                 );
             context.SaveChanges();
-            Console.WriteLine("Utisci uspjesno dodani");
+           
             var tipReferent = new TipUposlenika()
             {
                 Naziv = "referent"
@@ -447,7 +447,7 @@ namespace AutoSkola.WebAPI.Database
 
             context.SaveChanges();
 
-            Console.WriteLine("Tipovi uposlenika dodani");
+           
 
             //referenti
             context.UposlenikTipUposlenika.Add(new UposlenikTipUposlenika()
@@ -487,7 +487,7 @@ namespace AutoSkola.WebAPI.Database
                 UposlenikId = instruktor5_db.Entity.Id
             });
             
-            Console.WriteLine("Uposlenik tip uposlenika dodani");
+            
 
             context.SaveChanges();
 
@@ -525,7 +525,7 @@ namespace AutoSkola.WebAPI.Database
                new Potvrda { DatumPolaganja = DateTime.Now, KandidatId = kandidat22.Entity.Id, KategorijaId = 2, UposlenikId = uposlenik_db.Entity.Id }
                );
             context.SaveChanges();
-            Console.WriteLine("Potvrde dodane");
+          
             //raspored casova
             if (context.RasporedCasova.ToList().Count() > 0)
                 return;
@@ -547,7 +547,7 @@ namespace AutoSkola.WebAPI.Database
               );
             
             context.SaveChanges();
-            Console.WriteLine("Raspored casova dodan");
+           
             //termin rasporeda casova
             if (context.TerminRasporedCasova.ToList().Count() > 0)
                 return;
@@ -660,7 +660,7 @@ namespace AutoSkola.WebAPI.Database
                );
 
             context.SaveChanges();
-            Console.WriteLine("termin rasporeda casova dodan");
+            
             //Uplate
             if (context.Uplata.ToList().Count() > 0)
                 return;
@@ -683,7 +683,7 @@ namespace AutoSkola.WebAPI.Database
                new Uplata { DatumUplate = GenerisiDatum(), KandidatId = kandidat55.Entity.Id, Iznos = 25, Svrha = "Dodatni cas" }
                );
             context.SaveChanges();
-            Console.WriteLine("Uplate uspjesno dodane");
+           
             //Zahtjevi
             if (context.Zahtjev.ToList().Count() > 0)
                 return;
@@ -692,27 +692,16 @@ namespace AutoSkola.WebAPI.Database
                 new Zahtjev { DatumPodnosenjaZahtjeva = GenerisiDatum(), LjekarskoUvjerenjeId = lj1.Entity.Id, UposlenikId = instruktor_db.Entity.Id, UslugaId = 1, Odobren = false, Odbacen = false },
                 new Zahtjev { DatumPodnosenjaZahtjeva = GenerisiDatum(), LjekarskoUvjerenjeId = lj2.Entity.Id, UposlenikId = instruktor_db.Entity.Id, UslugaId = 1, Odobren = false, Odbacen = false },
                 new Zahtjev { DatumPodnosenjaZahtjeva = GenerisiDatum(), LjekarskoUvjerenjeId = lj3.Entity.Id, UposlenikId = instruktor3_db.Entity.Id, UslugaId = 1, Odobren = false, Odbacen = false },
-                new Zahtjev { DatumPodnosenjaZahtjeva = GenerisiDatum(), LjekarskoUvjerenjeId = lj4.Entity.Id, UposlenikId = instruktor4_db.Entity.Id, UslugaId = 1, Odobren = false, Odbacen = false }
-                //new Zahtjev { DatumPodnosenjaZahtjeva = GenerisiDatum(), LjekarskoUvjerenjeId = lj5.Entity.Id, UposlenikId = instruktor4_db.Entity.Id, UslugaId = 1, Odobren = false, Odbacen = false }
+                new Zahtjev { DatumPodnosenjaZahtjeva = GenerisiDatum(), LjekarskoUvjerenjeId = lj4.Entity.Id, UposlenikId = instruktor4_db.Entity.Id, UslugaId =2, Odobren = false, Odbacen = false },
+                new Zahtjev { DatumPodnosenjaZahtjeva = GenerisiDatum(), LjekarskoUvjerenjeId = lj5.Entity.Id, UposlenikId = instruktor4_db.Entity.Id, UslugaId = 1, Odobren = false, Odbacen = false }
 
                 );
             context.SaveChanges();
-            Console.WriteLine("Potvrde dodane");
+         
         }
-        //private static void AddKorisnikUloga(AutoSkolaContext context)
-        //{
-        //    if (context.KorisnikUloga.ToList().Count > 0)
+       
 
-        //        return;
-
-        //    context.KorisnikUloga.AddRange(
-                
-        //    );
-
-        //    context.SaveChanges();
-
-        //    Console.WriteLine("Kategorije added");
-        //}
+   
 
         private static void AddVozilo(AutoSkolaContext context)
 
@@ -743,7 +732,7 @@ namespace AutoSkola.WebAPI.Database
 
             context.SaveChanges();
 
-            Console.WriteLine("Vozila added");
+         
 
         }
         
@@ -766,7 +755,7 @@ namespace AutoSkola.WebAPI.Database
 
             context.SaveChanges();
 
-            Console.WriteLine("Marka added");
+           
 
         }
         
@@ -789,7 +778,6 @@ namespace AutoSkola.WebAPI.Database
 
             context.SaveChanges();
 
-            Console.WriteLine("Model types added");
 
         }
 
@@ -823,7 +811,7 @@ namespace AutoSkola.WebAPI.Database
 
             context.SaveChanges();
 
-            Console.WriteLine("Usluge  added");
+           
 
         }
 
@@ -842,7 +830,7 @@ namespace AutoSkola.WebAPI.Database
 
             context.SaveChanges();
 
-            Console.WriteLine("Uloga added");
+            
 
         }
         private static void AddRasporedPolaganja(AutoSkolaContext context)
@@ -857,7 +845,7 @@ namespace AutoSkola.WebAPI.Database
                          new RasporedPolaganja { DatumPolaganja = GenerisiDatum() }
                          );
             context.SaveChanges();
-            Console.WriteLine("Raspored polaganja dodan");
+           
             //termin rasporeda polaganja
             if (context.TerminRasporedCasova.ToList().Count() > 0)
                 return;
@@ -867,28 +855,10 @@ namespace AutoSkola.WebAPI.Database
                 new TerminRasporedaPolaganja { Od = "13:00", Do = "15:00", KandidatId = 3, RasporedPolaganjaId = rp1.Entity.Id }
                 );
             context.SaveChanges();
-            Console.WriteLine("Termin rasporeda polaganja dodan");
+           
 
         }
-
-
-        //private static void AddTipUposlenika(AutoSkolaContext context)
-
-        //{
-        //    if (context.TipUposlenika.ToList().Count > 0)
-        //        return;
-
-        //    context.TipUposlenika.AddRange(
-        //        new TipUposlenika { Naziv = "Referent" },
-        //        new TipUposlenika { Naziv = "Instruktor" }
-        //    );
-
-        //    context.SaveChanges();
-
-        //    Console.WriteLine("TipUposlenika added");
-
-        //}
-       
+   
     }
 }
 

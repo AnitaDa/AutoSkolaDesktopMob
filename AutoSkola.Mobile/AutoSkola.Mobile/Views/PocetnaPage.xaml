@@ -1,26 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:AutoSkola.Mobile.ViewModels"
              x:Class="AutoSkola.Mobile.Views.PocetnaPage">
+    <ContentPage.BindingContext>
+        <vm:PocetnaViewModel></vm:PocetnaViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <!--<ScrollView>
-            --><!--<ListView ItemsSource="{Binding top5Instruktora}" SelectedItem="{Binding odabraniInstruktor}" ItemSelected="ListView_ItemSelected">
+            <StackLayout>
+                <Label Text="Instruktori"
+                 TextColor="DodgerBlue"
+                  LineBreakMode="NoWrap"
+                  Style="{DynamicResource ListItemTextStyle}" ></Label>
+                <ListView  ItemsSource="{Binding listaInstruktora}" HasUnevenRows="true" HeightRequest="200" SeparatorVisibility="None">
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell >
-                            <StackLayout  BackgroundColor="PowderBlue" Padding="10">
-                                <Label Text="{Binding ImePrezime}"
-                                    TextColor="DodgerBlue"
-                                       LineBreakMode="NoWrap"
-                                       Style="{DynamicResource ListItemTextStyle}" ></Label>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>--><!--
-            </ListView>
-            </ScrollView>-->
+                        <ViewCell>
 
+                            <StackLayout BackgroundColor="DodgerBlue"  Padding="20" Orientation="Horizontal">
+                                <Frame HorizontalOptions="FillAndExpand" BorderColor="Black">
+                                    <StackLayout   Orientation="Vertical">
+                                        <Label Text="{Binding ImePrezime}" 
+                                           TextColor="Wheat"
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </StackLayout>
+            <StackLayout >
+                <Label Text="Usluge"
+                 TextColor="DodgerBlue"
+                  LineBreakMode="NoWrap"
+                  Style="{DynamicResource ListItemTextStyle}" ></Label>
+                <ListView  ItemsSource="{Binding listaUsluga}" HasUnevenRows="true" HeightRequest="200" SeparatorVisibility="None">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <StackLayout BackgroundColor="DodgerBlue"  Padding="20" Orientation="Horizontal">
+                                <Frame HorizontalOptions="FillAndExpand" BorderColor="Black">
+                                    <StackLayout   Orientation="Vertical">
+
+                                        <Label Text="{Binding NazivKategorija}" 
+                                           TextColor="Wheat"
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                        <Label  Text="{Binding Cijena,StringFormat='Cijena usluge: {0}KM'}" 
+                                           LineBreakMode="NoWrap"
+                                           TextColor="Red"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </StackLayout>
+            <StackLayout BackgroundColor="Azure">
+                <Label Text="Adresa: Dzemala Bijedica 10"
+                 TextColor="DodgerBlue"
+                  LineBreakMode="NoWrap"
+                  Style="{DynamicResource ListItemTextStyle}" ></Label>
+                <Label Text="Grad: Sarajevo"
+                 TextColor="DodgerBlue"
+                  LineBreakMode="NoWrap"
+                  Style="{DynamicResource ListItemTextStyle}" ></Label>
+                <Label Text="Kontakt: 061000000"
+                 TextColor="DodgerBlue"
+                  LineBreakMode="NoWrap"
+                  Style="{DynamicResource ListItemTextStyle}" ></Label>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

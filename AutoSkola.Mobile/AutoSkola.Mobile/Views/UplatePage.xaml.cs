@@ -31,7 +31,14 @@ namespace AutoSkola.Mobile.Views
             };
             //pretraga kandidata sa tim korisnickim nalogom
             var kandidat = await _kandidati.Get<List<MKandidat>>(searchKandidat);
-            await model.PrikaziUplate(kandidat.FirstOrDefault().Id);
+            if (kandidat.Count() != 0)
+            {
+                await model.PrikaziUplate(kandidat.FirstOrDefault().Id);
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Obavjest", "Nemate uplata!", "OK");
+            }
         }
     }
 }

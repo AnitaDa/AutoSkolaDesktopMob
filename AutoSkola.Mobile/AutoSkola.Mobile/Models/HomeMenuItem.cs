@@ -6,7 +6,7 @@ namespace AutoSkola.Mobile.Models
 {
     public enum MenuItemType
     {
-        Browse,
+        //Browse,
         RasporedCasova,
         SalnjeZahtjeva,
         PodaciOObuci,
