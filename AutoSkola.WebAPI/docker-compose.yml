@@ -9,6 +9,8 @@ services:
       MSSQL_PID: Express
     ports:
         - "1433:1433"
+    networks:
+        - seminarski-net
 
   seminarski-api:
       build: ../
@@ -17,6 +19,16 @@ services:
       depends_on:
         - ms-sql-server
       environment:
-        - ConnectionStrings:Docker=Server=ms-sql-server,1433;Database=IB150262;User=sa;Password=Pa55w0rd2020;MultipleActiveResultSets=true;ConnectRetryCount=200;TrustServerCertificate=true;
+          ConnectionStrings:Docker: Server=ms-sql-server,1433;Database=IB150262;User=sa;Password=Pa55w0rd2020;MultipleActiveResultSets=true;ConnectRetryCount=200;TrustServerCertificate=true;
       ports: 
         - "5000:80"
+      networks:
+          - seminarski-net
+      links:
+          - ms-sql-server
+      depends_on: 
+          - ms-sql-server
+
+networks:
+  seminarski-net:
+    driver: bridge
