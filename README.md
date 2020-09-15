@@ -23,30 +23,37 @@ Desktop app pristupaju uposlenici tj. referenti i instruktori.
 Pristupni podaci:
 
 
-REFERENT
+**REFERENT**
 
 korisnicko ime: uposlenik
 
 pass: test
 
 
-INSTRUKTOR
+
+**INSTRUKTOR**
+
 
 korisnicko ime: instruktor
 
 pass: test
 
 
-MOBILNA APP
-KANDIDATI
 
-korisnicko ime: kandidat
+MOBILNA APP
+
+
+
+**KANDIDATI**
+
+-korisnicko ime: kandidat
 
 pass: test
 
 
 Prilikom slanja zahtjeva
 Br.ljekarskog za kandidat: 5
+
 
 
 
@@ -62,7 +69,8 @@ Br.ljekarskog za kandidat2: 4
 
 
 
-korisnicko ime: kandidat3
+
+-korisnicko ime: kandidat3
 
 pass: test
 
