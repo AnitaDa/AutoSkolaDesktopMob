@@ -47,7 +47,7 @@ namespace AutoSkola.WinUI.Uplate.Izvjestaj
                 ID = Id;
             }
 
-            var uplate = await _uplate.Get<List<MUplate>>(null);
+            var uplate = await _uplate.Get<List<MUplate>>(new UplataSearchRequest {KandidatId=ID});
             ReportDataSource rdd = new ReportDataSource("DataSetUplate", uplate);
             reportViewerUplate.LocalReport.ReportPath =
                 Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "Uplate", "Izvjestaj", "IzjvestajtUplate.rdlc");
