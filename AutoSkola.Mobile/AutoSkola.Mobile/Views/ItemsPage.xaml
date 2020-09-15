@@ -11,8 +11,12 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
-
-    <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="DodgerBlue" VerticalOptions="CenterAndExpand">
+            <Label Padding="20" TextColor="Azure" Text="DOBRODOŠLI!"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+    <!--<RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
         <CollectionView x:Name="ItemsCollectionView"
                 ItemsSource="{Binding Items}">
             <d:CollectionView.ItemsSource>
@@ -45,5 +49,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </RefreshView>
+    </RefreshView>-->
 </ContentPage>

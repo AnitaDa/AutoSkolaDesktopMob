@@ -298,7 +298,7 @@ namespace AutoSkola.WebAPI.Database
                 DatumRodjenja = DateTime.Now,
                 Ime = "Uposlenik1",
                 KorisnikId = k1.Entity.Id,
-                Prezime = "Prezime 1",
+                Prezime = "Prezime1",
                 Slika = slika
             };
             var uposlenik3 = new Uposlenik()
@@ -313,9 +313,9 @@ namespace AutoSkola.WebAPI.Database
             var kandidat1 = new Kandidat()
             {
                 DatumRodjenja = DateTime.Now,
-                Ime = "Kandidat Ime 1",
+                Ime = "Kandidat1",
                 KorisnikId = k2.Entity.Id,
-                Prezime = "Kandidat Prezime 1",
+                Prezime = "Prezime1",
                 Slika = slika,
                 Status = true
             };
