@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:AutoSkola.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="AutoSkola.Mobile.Views.Usluge"
+             >
+             
+    <ContentPage.BindingContext>
+        <vm:UslugeViewModel></vm:UslugeViewModel>
+     </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label TextColor="White" FontSize="Medium" BackgroundColor="DodgerBlue" Padding="20" Text="Usluge" />
+            <StackLayout Padding="5" BackgroundColor="DodgerBlue">
+                <Picker  ItemsSource="{Binding listaKategorija}" SelectedItem="{Binding selectedKategorija}" ItemDisplayBinding="{Binding Naziv}" SelectedIndexChanged="Picker_SelectedIndexChanged"  ></Picker>
+            </StackLayout>
+            <ListView  ItemsSource="{Binding listaUsluga}" HasUnevenRows="true" HeightRequest="200" SeparatorVisibility="None">
+               
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <StackLayout BackgroundColor="DodgerBlue"  Padding="20" Orientation="Horizontal">
+                                <Frame HorizontalOptions="FillAndExpand" BorderColor="Black">
+                                    <StackLayout   Orientation="Vertical">
+
+                                        <Label Text="{Binding Naziv}" 
+                                           TextColor="Wheat"
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                        <Label Text="{Binding Kategorija}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                        <Label Text="{Binding Opis}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                        <Label  Text="{Binding Cijena,StringFormat='Cijena usluge: {0}KM'}" 
+                                           LineBreakMode="NoWrap"
+                                           TextColor="Red"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                        <Button Clicked="Button_Clicked_1" Text="{Binding BrojacUsluge}"></Button>
+                                        <Label IsVisible="false"  Text="{Binding Id}" ></Label>
+                                        <Button BackgroundColor="Wheat" TextColor="DodgerBlue" Text="Kupi uslugu" CommandParameter="{Binding Id}"  Clicked="Button_OnClicked" />
+
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                           
+                        </ViewCell>
+                       
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <StackLayout Padding="5" BackgroundColor="DodgerBlue">
+                <Frame BorderColor="Wheat">
+                    <Button Text="Korpa" Clicked="Button_Clicked" ></Button>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

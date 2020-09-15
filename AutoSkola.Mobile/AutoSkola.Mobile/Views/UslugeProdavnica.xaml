@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:AutoSkola.Mobile.ViewModels"
+             x:Class="AutoSkola.Mobile.Views.UslugeProdavnica">
+    <ContentPage.BindingContext>
+        <vm:UslugeProdavnicaViewModel></vm:UslugeProdavnicaViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label FontSize="Medium" Padding="10" BackgroundColor="DodgerBlue" TextColor="Wheat" Text="Odabrane usluge"></Label>
+            </StackLayout>
+            <ListView  ItemsSource="{Binding listaOdabranihUsluga}" HasUnevenRows="true" HeightRequest="200" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout   BackgroundColor="DodgerBlue" Padding="20" Orientation="Horizontal">
+                                
+                                <Frame HorizontalOptions="FillAndExpand" BorderColor="Black">
+                                   
+                                    <StackLayout   Orientation="Vertical">
+
+                                        <Label Text="{Binding Usluga.Naziv}" 
+                                           TextColor="Wheat"
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                        <Label Text="{Binding Usluga.Opis}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                        <Label  Text="{Binding Usluga.Kategorija}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                        <Label  Text="{Binding BrojacUsluge, StringFormat='Broj usluga:{0}'}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                        <Label  Text="{Binding Usluga.Cijena,StringFormat='Cijena usluge: {0}KM'}" 
+                                           LineBreakMode="NoWrap"
+                                           TextColor="Red"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout BackgroundColor="DodgerBlue" Padding="10">
+                <Label TextColor="Red" Text="{Binding Ukupno,StringFormat='Ukupan iznos {0}KM'}"></Label>
+                <Button Clicked="Button_Clicked" CommandParameter="{Binding Ukupno}" Text="Potvrdi kupovinu"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

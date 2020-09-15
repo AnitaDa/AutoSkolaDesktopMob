@@ -1,0 +1,957 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.4\build\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.4\build\Microsoft.CodeAnalysis.Analyzers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EDF09108-4A77-4D03-AB80-CD501569E5C9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AutoSkola.WinUI</RootNamespace>
+    <AssemblyName>AutoSkola.WinUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Flurl, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.2.8.2\lib\net40\Flurl.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl.Http, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.Http.2.4.2\lib\net46\Flurl.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authentication.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Core.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization.Policy, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.Policy.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.Policy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.DataProtection.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.DataProtection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.DataProtection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Html.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Html.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Html.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Extensions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Core.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.DataAnnotations, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.DataAnnotations.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Razor, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Razor.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Razor.Language, Version=3.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Razor.Language.3.1.0\lib\netstandard2.0\Microsoft.AspNetCore.Razor.Language.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Razor.Runtime, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Razor.Runtime.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Razor.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.ResponseCaching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.ResponseCaching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis, Version=3.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.3.3.1\lib\netstandard2.0\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=3.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.3.3.1\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces, Version=3.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.Workspaces.3.3.1\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Razor, Version=3.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Razor.3.1.0\lib\netstandard2.0\Microsoft.CodeAnalysis.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces, Version=3.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Workspaces.Common.3.3.1\lib\netstandard2.0\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.2.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.3.1.7\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.3.1.7\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.7\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.7\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.2.1.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.ObjectPool.2.2.0\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.WebEncoders, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.WebEncoders.2.2.0\lib\netstandard2.0\Microsoft.Extensions.WebEncoders.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Web.CodeGeneration.Contracts, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.3.1.4\lib\netstandard2.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Web.CodeGeneration.Core, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Web.CodeGeneration.Core.3.1.4\lib\netstandard2.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.3.1.4\lib\netstandard2.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Web.CodeGeneration.Templating, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Web.CodeGeneration.Templating.3.1.4\lib\netstandard2.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Web.CodeGeneration.Utils, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Web.CodeGeneration.Utils.3.1.4\lib\netstandard2.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.4.5.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.21.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.21\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Frameworks, Version=4.7.0.5, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Frameworks.4.7.0\lib\net46\NuGet.Frameworks.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.FilePicker, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Plugin.FilePicker.2.1.41\lib\net45\Plugin.FilePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Composition.AttributedModel, Version=1.0.31.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.AttributedModel.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.AttributedModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Convention, Version=1.0.31.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Convention.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.Convention.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Hosting, Version=1.0.31.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Hosting.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Runtime, Version=1.0.31.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Runtime.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.TypedParts, Version=1.0.31.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.TypedParts.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=1.4.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.6.0\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.5.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.4.5.0\lib\net461\System.Security.Cryptography.Xml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.5.0\lib\net461\System.Security.Permissions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.5.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.1\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.21\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="XanderUI">
+      <HintPath>..\..\..\..\Downloads\csharpui.comXanderUI_DLL\XanderUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.21\lib\net452\Zstandard.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APIService.cs" />
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPocetna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPocetna.Designer.cs">
+      <DependentUpon>frmPocetna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kandidati\frmKandidatDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kandidati\frmKandidatDetalji.Designer.cs">
+      <DependentUpon>frmKandidatDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kandidati\frmKandidati.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kandidati\frmKandidati.Designer.cs">
+      <DependentUpon>frmKandidati.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kandidati\ListaKandidata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Kandidati\ListaKandidata.Designer.cs">
+      <DependentUpon>ListaKandidata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kategorije\frmListaKategorija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorije\frmListaKategorija.Designer.cs">
+      <DependentUpon>frmListaKategorija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kategorije\frmNovaKategorija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorije\frmNovaKategorija.Designer.cs">
+      <DependentUpon>frmNovaKategorija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kategorije\HeaderKategorija.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Kategorije\HeaderKategorija.Designer.cs">
+      <DependentUpon>HeaderKategorija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kategorije\RowKategorije.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Kategorije\RowKategorije.Designer.cs">
+      <DependentUpon>RowKategorije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pocetna\frmPocetnaKartica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pocetna\frmPocetnaKartica.Designer.cs">
+      <DependentUpon>frmPocetnaKartica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Potvrde\frmListaPotvrda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Potvrde\frmListaPotvrda.Designer.cs">
+      <DependentUpon>frmListaPotvrda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Potvrde\frmNavBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Potvrde\frmNavBar.Designer.cs">
+      <DependentUpon>frmNavBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Potvrde\frmNovaPotvrda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Potvrde\frmNovaPotvrda.Designer.cs">
+      <DependentUpon>frmNovaPotvrda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Potvrde\HeaderPotvrde.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Potvrde\HeaderPotvrde.Designer.cs">
+      <DependentUpon>HeaderPotvrde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Potvrde\Izvjestaj\DataSetPotvrde.cs">
+      <DependentUpon>DataSetPotvrde.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Potvrde\Izvjestaj\DataSetPotvrde.Designer.cs">
+      <DependentUpon>DataSetPotvrde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Potvrde\Izvjestaj\frmIzvjestajPotvrde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Potvrde\Izvjestaj\frmIzvjestajPotvrde.Designer.cs">
+      <DependentUpon>frmIzvjestajPotvrde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Potvrde\RowPotvrda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Potvrde\RowPotvrda.Designer.cs">
+      <DependentUpon>RowPotvrda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Raspored casova\frmNoviTermin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raspored casova\frmNoviTermin.Designer.cs">
+      <DependentUpon>frmNoviTermin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored casova\frmRasporedCasova.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raspored casova\frmRasporedCasova.Designer.cs">
+      <DependentUpon>frmRasporedCasova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored casova\HeaderRasporedCasova.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Raspored casova\HeaderRasporedCasova.Designer.cs">
+      <DependentUpon>HeaderRasporedCasova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored casova\ListaKandidataZaRaspored.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Raspored casova\ListaKandidataZaRaspored.Designer.cs">
+      <DependentUpon>ListaKandidataZaRaspored.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored casova\RowRasporedCasova.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Raspored casova\RowRasporedCasova.Designer.cs">
+      <DependentUpon>RowRasporedCasova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored polaganja\frmNoviRasporedPolaganja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raspored polaganja\frmNoviRasporedPolaganja.Designer.cs">
+      <DependentUpon>frmNoviRasporedPolaganja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored polaganja\frmRasporedPolaganja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raspored polaganja\frmRasporedPolaganja.Designer.cs">
+      <DependentUpon>frmRasporedPolaganja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored polaganja\HeaderRasporedPolaganja.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Raspored polaganja\HeaderRasporedPolaganja.Designer.cs">
+      <DependentUpon>HeaderRasporedPolaganja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored polaganja\RowRasporedPolanja.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Raspored polaganja\RowRasporedPolanja.Designer.cs">
+      <DependentUpon>RowRasporedPolanja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored polaganja\TerminiRasporedaPolaganja\frmNoviTerminPolaganje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raspored polaganja\TerminiRasporedaPolaganja\frmNoviTerminPolaganje.Designer.cs">
+      <DependentUpon>frmNoviTerminPolaganje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored polaganja\TerminiRasporedaPolaganja\frmTerminRasporedaPolaganja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raspored polaganja\TerminiRasporedaPolaganja\frmTerminRasporedaPolaganja.Designer.cs">
+      <DependentUpon>frmTerminRasporedaPolaganja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored polaganja\TerminiRasporedaPolaganja\HeaderTerminRasporedPolaganja.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Raspored polaganja\TerminiRasporedaPolaganja\HeaderTerminRasporedPolaganja.Designer.cs">
+      <DependentUpon>HeaderTerminRasporedPolaganja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raspored polaganja\TerminiRasporedaPolaganja\RowTerminRasporedPolaganja.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Raspored polaganja\TerminiRasporedaPolaganja\RowTerminRasporedPolaganja.Designer.cs">
+      <DependentUpon>RowTerminRasporedPolaganja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uplate\frmNavBarUplat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uplate\frmNavBarUplat.Designer.cs">
+      <DependentUpon>frmNavBarUplat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uplate\frmNovaUplata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uplate\frmNovaUplata.Designer.cs">
+      <DependentUpon>frmNovaUplata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uplate\frmUplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uplate\frmUplate.Designer.cs">
+      <DependentUpon>frmUplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uplate\Izvjestaj\DataSetUplate.cs">
+      <DependentUpon>DataSetUplate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Uplate\Izvjestaj\DataSetUplate.Designer.cs">
+      <DependentUpon>DataSetUplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uplate\Izvjestaj\frmUplateIzvjestajj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uplate\Izvjestaj\frmUplateIzvjestajj.Designer.cs">
+      <DependentUpon>frmUplateIzvjestajj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uplate\ListaUplata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Uplate\ListaUplata.Designer.cs">
+      <DependentUpon>ListaUplata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uposlenici\frmDetaljiUposlenika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uposlenici\frmDetaljiUposlenika.Designer.cs">
+      <DependentUpon>frmDetaljiUposlenika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uposlenici\frmListaUposlenika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uposlenici\frmListaUposlenika.Designer.cs">
+      <DependentUpon>frmListaUposlenika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uposlenici\frmNoviUposlenik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uposlenici\frmNoviUposlenik.Designer.cs">
+      <DependentUpon>frmNoviUposlenik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uposlenici\Uposlenik.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Uposlenici\Uposlenik.Designer.cs">
+      <DependentUpon>Uposlenik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usluge\frmListaUsluga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usluge\frmListaUsluga.Designer.cs">
+      <DependentUpon>frmListaUsluga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usluge\frmNovaUsluga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usluge\frmNovaUsluga.Designer.cs">
+      <DependentUpon>frmNovaUsluga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usluge\HeaderUsluge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Usluge\HeaderUsluge.Designer.cs">
+      <DependentUpon>HeaderUsluge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usluge\RowUsluge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Usluge\RowUsluge.Designer.cs">
+      <DependentUpon>RowUsluge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\UIHelper.cs" />
+    <Compile Include="Vozila\frmDetaljiVozilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vozila\frmDetaljiVozilo.Designer.cs">
+      <DependentUpon>frmDetaljiVozilo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vozila\frmListaVozila.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vozila\frmListaVozila.Designer.cs">
+      <DependentUpon>frmListaVozila.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vozila\frmNovoVozilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vozila\frmNovoVozilo.Designer.cs">
+      <DependentUpon>frmNovoVozilo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vozila\Vozilo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vozila\Vozilo.Designer.cs">
+      <DependentUpon>Vozilo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zahtjevi\frmZahtjevi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zahtjevi\frmZahtjevi.Designer.cs">
+      <DependentUpon>frmZahtjevi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zahtjevi\HeaderTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zahtjevi\HeaderTable.Designer.cs">
+      <DependentUpon>HeaderTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zahtjevi\RowZahtjevi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zahtjevi\RowZahtjevi.Designer.cs">
+      <DependentUpon>RowZahtjevi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zahtjevi\ZahtjevPocetna.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zahtjevi\ZahtjevPocetna.Designer.cs">
+      <DependentUpon>ZahtjevPocetna.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPocetna.resx">
+      <DependentUpon>frmPocetna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kandidati\frmKandidatDetalji.resx">
+      <DependentUpon>frmKandidatDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kandidati\frmKandidati.resx">
+      <DependentUpon>frmKandidati.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kandidati\ListaKandidata.resx">
+      <DependentUpon>ListaKandidata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategorije\frmListaKategorija.resx">
+      <DependentUpon>frmListaKategorija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategorije\frmNovaKategorija.resx">
+      <DependentUpon>frmNovaKategorija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategorije\HeaderKategorija.resx">
+      <DependentUpon>HeaderKategorija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategorije\RowKategorije.resx">
+      <DependentUpon>RowKategorije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pocetna\frmPocetnaKartica.resx">
+      <DependentUpon>frmPocetnaKartica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Potvrde\frmListaPotvrda.resx">
+      <DependentUpon>frmListaPotvrda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Potvrde\frmNavBar.resx">
+      <DependentUpon>frmNavBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Potvrde\frmNovaPotvrda.resx">
+      <DependentUpon>frmNovaPotvrda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Potvrde\HeaderPotvrde.resx">
+      <DependentUpon>HeaderPotvrde.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Potvrde\Izvjestaj\frmIzvjestajPotvrde.resx">
+      <DependentUpon>frmIzvjestajPotvrde.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Potvrde\RowPotvrda.resx">
+      <DependentUpon>RowPotvrda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Raspored casova\frmNoviTermin.resx">
+      <DependentUpon>frmNoviTermin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored casova\frmRasporedCasova.resx">
+      <DependentUpon>frmRasporedCasova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored casova\HeaderRasporedCasova.resx">
+      <DependentUpon>HeaderRasporedCasova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored casova\ListaKandidataZaRaspored.resx">
+      <DependentUpon>ListaKandidataZaRaspored.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored casova\RowRasporedCasova.resx">
+      <DependentUpon>RowRasporedCasova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored polaganja\frmNoviRasporedPolaganja.resx">
+      <DependentUpon>frmNoviRasporedPolaganja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored polaganja\frmRasporedPolaganja.resx">
+      <DependentUpon>frmRasporedPolaganja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored polaganja\HeaderRasporedPolaganja.resx">
+      <DependentUpon>HeaderRasporedPolaganja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored polaganja\RowRasporedPolanja.resx">
+      <DependentUpon>RowRasporedPolanja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored polaganja\TerminiRasporedaPolaganja\frmNoviTerminPolaganje.resx">
+      <DependentUpon>frmNoviTerminPolaganje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored polaganja\TerminiRasporedaPolaganja\frmTerminRasporedaPolaganja.resx">
+      <DependentUpon>frmTerminRasporedaPolaganja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored polaganja\TerminiRasporedaPolaganja\HeaderTerminRasporedPolaganja.resx">
+      <DependentUpon>HeaderTerminRasporedPolaganja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raspored polaganja\TerminiRasporedaPolaganja\RowTerminRasporedPolaganja.resx">
+      <DependentUpon>RowTerminRasporedPolaganja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UplateIzvjestaj.rdlc" />
+    <EmbeddedResource Include="Uplate\frmNavBarUplat.resx">
+      <DependentUpon>frmNavBarUplat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uplate\frmNovaUplata.resx">
+      <DependentUpon>frmNovaUplata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uplate\frmUplate.resx">
+      <DependentUpon>frmUplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uplate\Izvjestaj\frmUplateIzvjestajj.resx">
+      <DependentUpon>frmUplateIzvjestajj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uplate\ListaUplata.resx">
+      <DependentUpon>ListaUplata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uposlenici\frmDetaljiUposlenika.resx">
+      <DependentUpon>frmDetaljiUposlenika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uposlenici\frmListaUposlenika.resx">
+      <DependentUpon>frmListaUposlenika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uposlenici\frmNoviUposlenik.resx">
+      <DependentUpon>frmNoviUposlenik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uposlenici\Uposlenik.resx">
+      <DependentUpon>Uposlenik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usluge\frmListaUsluga.resx">
+      <DependentUpon>frmListaUsluga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usluge\frmNovaUsluga.resx">
+      <DependentUpon>frmNovaUsluga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usluge\HeaderUsluge.resx">
+      <DependentUpon>HeaderUsluge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usluge\RowUsluge.resx">
+      <DependentUpon>RowUsluge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vozila\frmDetaljiVozilo.resx">
+      <DependentUpon>frmDetaljiVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vozila\frmListaVozila.resx">
+      <DependentUpon>frmListaVozila.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vozila\frmNovoVozilo.resx">
+      <DependentUpon>frmNovoVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vozila\Vozilo.resx">
+      <DependentUpon>Vozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zahtjevi\frmZahtjevi.resx">
+      <DependentUpon>frmZahtjevi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zahtjevi\HeaderTable.resx">
+      <DependentUpon>HeaderTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zahtjevi\RowZahtjevi.resx">
+      <DependentUpon>RowZahtjevi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zahtjevi\ZahtjevPocetna.resx">
+      <DependentUpon>ZahtjevPocetna.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Potvrde\Izvjestaj\DataSetPotvrde.xsd" />
+    <None Include="Potvrde\Izvjestaj\DataSetPotvrde.xss">
+      <DependentUpon>DataSetPotvrde.xsd</DependentUpon>
+    </None>
+    <None Include="Potvrde\Izvjestaj\IzvjestajPotvrde.rdlc" />
+    <None Include="Properties\DataSources\GetUplateIzvjestaj_Result.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Uplate\Izvjestaj\DataSetUplate.xsc">
+      <DependentUpon>DataSetUplate.xsd</DependentUpon>
+    </None>
+    <None Include="Uplate\Izvjestaj\DataSetUplate.xsd" />
+    <None Include="Uplate\Izvjestaj\DataSetUplate.xss">
+      <DependentUpon>DataSetUplate.xsd</DependentUpon>
+    </None>
+    <None Include="Uplate\Izvjestaj\IzjvestajtUplate.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoSkola.Model\AutoSkola.Model.csproj">
+      <Project>{e9ba5329-54d4-41c0-aed6-b4c991e7ac7f}</Project>
+      <Name>AutoSkola.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Biblioteke\XanderUI.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.4\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.4\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.4\build\Microsoft.CodeAnalysis.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.4\build\Microsoft.CodeAnalysis.Analyzers.props'))" />
+  </Target>
+</Project>

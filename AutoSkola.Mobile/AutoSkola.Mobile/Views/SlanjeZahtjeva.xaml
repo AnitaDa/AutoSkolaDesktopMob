@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:AutoSkola.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="AutoSkola.Mobile.Views.SlanjeZahtjeva">
+    <ContentPage.BindingContext>
+        <vm:SlanjeZahtjevaViewModel></vm:SlanjeZahtjevaViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label FontSize="Small" TextColor="Red" Text="Prije slanja zahtjeva, potrebno je obaviti ljekarski pregled!"></Label>
+            <Label  TextColor="Wheat" BackgroundColor="DodgerBlue" Padding="10" FontSize="Medium" Text="Popunite formu za slanje zahtjeva" />
+            <Label Padding="5"  Text="Usluga"></Label>
+            <Picker Title="Odaberite uslugu" ItemsSource="{Binding listaUsluga}" SelectedItem="{Binding selectedUsluga}" ItemDisplayBinding="{Binding NazivKategorija}"></Picker>
+            <Label Padding="5" TextColor="red"  Text="{Binding GreskaUsluga}"></Label>
+            <Label Padding="5"  Text="Instruktor"></Label>
+            <Picker Title="Odaberite instruktora" ItemsSource="{Binding listaUposlnika}" SelectedItem="{Binding selectedUposlenik}" ItemDisplayBinding="{Binding ImePrezime}" ></Picker>
+            <Label Padding="5" TextColor="red" Text="{Binding GreskaUposlenik}"></Label>
+            <Label Padding="5"  Text="Broj ljekarskog uvjerenja"></Label>
+            <Entry Text="{Binding BrojLjekarskog}"></Entry>
+           
+            <Button TextColor="Wheat" BackgroundColor="DodgerBlue" Command="{Binding PosaljiZahtjev}" Text="Pošalji zahtjev"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

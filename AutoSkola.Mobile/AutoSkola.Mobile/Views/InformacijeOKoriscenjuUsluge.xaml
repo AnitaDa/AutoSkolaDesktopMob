@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:AutoSkola.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="AutoSkola.Mobile.Views.InformacijeOKoriscenjuUsluge">
+    <ContentPage.BindingContext>
+        <vm:PodaciOObuciViewModel></vm:PodaciOObuciViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label TextColor="White" FontSize="Medium" BackgroundColor="DodgerBlue" Padding="20" Text="Informacije o koristenoj usluzi" />
+            <StackLayout BackgroundColor="PowderBlue" >
+                <Label BackgroundColor="DodgerBlue"  FontSize="Medium"  TextColor="Wheat" Padding="5" Text="Broj odrzanih časova(prakticno)"></Label>
+                <Label TextColor="DodgerBlue" Padding="5" Text="{Binding BrojCasovaPrakticno}"></Label>
+            </StackLayout>
+            <StackLayout BackgroundColor="PowderBlue" >
+                <Label BackgroundColor="DodgerBlue"  FontSize="Medium"  TextColor="Wheat" Padding="5" Text="Broj odrznaih časova(teorija)"></Label>
+                <Label TextColor="DodgerBlue" Padding="5" Text="{Binding BrojCasovaTeorija}"></Label>
+            </StackLayout>
+            <StackLayout  BackgroundColor="PowderBlue">
+                <Label  BackgroundColor="DodgerBlue" TextColor="Wheat"  FontSize="Medium"  Padding="5" Text="Usluga"></Label>
+                <Label Padding="5" TextColor="DodgerBlue"  Text="Naziv usluge"></Label>
+                <Label Padding="5"  Text="{Binding Zahtjev.Usluga}"></Label>
+                <Label Padding="5" TextColor="DodgerBlue" Text="Kategorija"></Label>
+                <Label Padding="5" Text="{Binding Zahtjev.Kategorija}"></Label>
+                <Label Padding="5" TextColor="DodgerBlue"  Text="Opis usluge"></Label>
+                <Label Padding="5" Text="{Binding Zahtjev.OpisUsluge}"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

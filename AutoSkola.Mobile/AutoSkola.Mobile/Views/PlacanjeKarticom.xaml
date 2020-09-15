@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             x:Class="AutoSkola.Mobile.Views.PlacanjeKarticom">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="DodgerBlue" Padding="10">
+                <Label TextColor="Wheat" Text="Podaci o kartici"></Label>
+            </StackLayout>
+            <Frame Padding="20" BorderColor="DodgerBlue" BackgroundColor="PowderBlue">
+                <StackLayout>
+                   
+                    <Label  Text="Broj kartice"></Label>
+                    <Entry x:Name="BrojKartice"  Keyboard="Numeric"></Entry>
+                    <Label x:Name="GreskaBrKartice" FontSize="10" TextColor="Red"></Label>
+                    <Label Text="Mjesec isteka"></Label>
+                    <Entry x:Name="MjesecIsteka"  Keyboard="Numeric"></Entry>
+                    <Label x:Name="GreskaMjesec" FontSize="10" TextColor="Red"></Label>
+                    <Label Text="Godina isteka"></Label>
+                    <Entry x:Name="GodinaIsteka" Keyboard="Numeric"></Entry>
+                    <Label x:Name="GreskaGodina" FontSize="10" TextColor="Red"></Label>
+                    <Label Text="CVV"></Label>
+                    <Entry x:Name="CVV"  Keyboard="Numeric"></Entry>
+                    <Label x:Name="GreskaCVV" FontSize="10" TextColor="Red"></Label>
+                    <Button Clicked="Button_Clicked" Text="Sacuvaj"></Button>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

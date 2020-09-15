@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:AutoSkola.Mobile.ViewModels"
+             x:Class="AutoSkola.Mobile.Views.InstruktoriDetaljiPage">
+    <ContentPage.BindingContext>
+        <vm:InstruktorDetaljiViewModel></vm:InstruktorDetaljiViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+    
+         <StackLayout>
+            <StackLayout  >
+                <Label FontSize="Medium" BackgroundColor="DodgerBlue" TextColor="Azure" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="Detalji o odabranom instruktoru"></Label>
+            </StackLayout>
+            <StackLayout  BackgroundColor="PowderBlue" Padding="25">
+                <Label Text="{Binding Instruktor.ImePrezime, StringFormat='Ime i prezime:        {0} '}"
+                                    TextColor="DodgerBlue"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}" ></Label>
+                <Label Text="{Binding Instruktor.DatumRodjenja,StringFormat='Datum rodjenja:     {0:dd MMMM, yyyy}'}"
+                                    TextColor="DodgerBlue"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}" ></Label>
+                    <Label Text="{Binding Instruktor.ProsecnaOcjena,StringFormat='Prosečna ocena:    {0}'}"
+                                    TextColor="DodgerBlue"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}" ></Label>
+                    <Image Source="{Binding Instruktor.Slika}"></Image>
+            </StackLayout>
+                <StackLayout>
+                    <Label Padding="10" Text="Ocjenite odabranog instruktora:"></Label>
+                    <Entry x:Name="OcjenaInstruktora" Text="{Binding Ocjena}"></Entry>
+                    <Label Text="{Binding GreskaOcjena}" TextColor="Red" FontSize="Micro" ></Label>
+                    <Button BackgroundColor="DodgerBlue" TextColor="Azure" Text="Ocjeni" Clicked="Button_Clicked" ></Button>
+                </StackLayout>
+                <Label Padding="20" TextColor="red" HorizontalOptions="CenterAndExpand" Text="Preporučeni instruktori"></Label>
+        </StackLayout>
+            <ScrollView>
+            <StackLayout>
+                <ListView ItemsSource="{Binding listaPreporucenihInstruktora}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                                <StackLayout  BackgroundColor="PowderBlue" Padding="25">
+                                    <Label Text="{Binding Ime, StringFormat='Ime:        {0} '}"
+                                    TextColor="DodgerBlue"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}" ></Label>
+                                        <Label Text="{Binding Prezime, StringFormat='Prezime:        {0} '}"
+                                    TextColor="DodgerBlue"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}" ></Label>
+                                        <Label Text="{Binding DatumRodjenja,StringFormat='Datum rodjenja:        {0:dd MMMM, yyyy}'}"
+                                    TextColor="DodgerBlue"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}" ></Label>
+                                    </StackLayout>
+                            </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+           </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

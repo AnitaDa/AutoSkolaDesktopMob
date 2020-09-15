@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:AutoSkola.Mobile.ViewModels"
+             x:Class="AutoSkola.Mobile.Views.UplatePage">
+    <ContentPage.BindingContext>
+        <vm:UplateViewModel></vm:UplateViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label TextColor="White" FontSize="Medium" BackgroundColor="DodgerBlue" Padding="20" Text="Uplate" />
+            <Grid Padding="5" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand" VerticalOptions="Start" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="20"  />
+                </Grid.RowDefinitions>
+                <Label TextColor="Wheat" Grid.Column="0" Text="Datum" />
+                <Label TextColor="Wheat"  Grid.Column="1" Text="Iznos" />
+                <Label TextColor="Wheat"  Grid.Column="2" Text="Svrha uplate" />
+            </Grid>
+            <ListView  ItemsSource="{Binding listaUplata}" HasUnevenRows="true" HeightRequest="200" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid Padding="0" BackgroundColor="PowderBlue"  Margin="0" RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Margin="0" Text="{Binding DatumUplate, StringFormat='{0:MMMM dd, yyyy}'}" />
+                                    <Label Grid.Column="1" Margin="0" Text="{Binding Iznos,StringFormat='{0}KM'}" />
+                                    <Label Grid.Column="2" Margin="0" Text="{Binding Svrha}" />
+
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

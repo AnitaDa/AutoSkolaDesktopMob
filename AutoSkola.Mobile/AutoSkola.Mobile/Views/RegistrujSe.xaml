@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AutoSkola.Mobile.ViewModels"
+             x:Class="AutoSkola.Mobile.Views.RegistrujSe">
+    <ContentPage.BindingContext>
+        <vm:RegistrujSeViewModel></vm:RegistrujSeViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content >
+        <ScrollView>
+        <StackLayout  Padding="5" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+            <Label FontSize="Medium" Padding="10" TextColor="White" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand"  Text="Registrujete se"></Label>
+            <Label Text="Ime:"></Label>
+            <Entry Text="{Binding Ime}"></Entry>
+            <Label Text="{Binding GreskaIme}" TextColor="Red" FontSize="Micro" ></Label>
+            <Label Text="Prezime:"></Label>
+            <Entry Text="{Binding Prezime}"></Entry>
+            <Label Text="{Binding GreskaPrezime}" TextColor="Red" FontSize="Micro"  ></Label>
+            <Label Text="Korisnicko ime:"></Label>
+            <Entry Text="{Binding KorisnickoIme}"></Entry>
+            <Label Text="{Binding GreskaKorisnickoIme}" TextColor="Red" FontSize="Micro"  ></Label>
+            <Label Text="Email:"></Label>
+            <Entry Text="{Binding Email}"></Entry>
+            <Label Text="{Binding GreskaEmail}" TextColor="Red" FontSize="Micro" ></Label>
+            <Label Text="Datum rodjenja:"></Label>
+            <DatePicker Date="{Binding DatumRodjenja}"  MinimumDate="1/1/1950" MaximumDate="1/1/2004"></DatePicker>
+            <Label Text="Lozinka:" ></Label>
+            <Entry Text="{Binding Lozinka}" IsPassword="True"></Entry>
+            <Label Text="{Binding GreskaLozinka}" TextColor="Red" FontSize="Micro" ></Label>
+            <Label Text="Potvrdi lozinku:"></Label>
+            <Entry Text="{Binding PotvrdnaLozinka}" IsPassword="true"></Entry>
+            <Label Text="{Binding GreskaPotvrdjenaLozinka}" TextColor="Red" FontSize="Micro" ></Label>
+                <Button Text="Odaberite sliku" Clicked="Button_Clicked" BackgroundColor="DodgerBlue" TextColor="Azure"></Button>
+                <Label x:Name="txtFileName" HorizontalTextAlignment="Start"  VerticalOptions="CenterAndExpand" TextColor="DodgerBlue"></Label>
+                <Button Command="{Binding RegistrujSeCommand}" Text="Prijavi se"></Button>
+              
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

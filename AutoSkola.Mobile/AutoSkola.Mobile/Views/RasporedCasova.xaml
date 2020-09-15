@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:AutoSkola.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="AutoSkola.Mobile.Views.RasporedCasova">
+    <ContentPage.BindingContext>
+        <vm:RasporedCasovaViewModel></vm:RasporedCasovaViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10" >
+           <Label TextColor="White" FontSize="Medium" BackgroundColor="DodgerBlue" Padding="20" Text="Raspored časova" />
+            <DatePicker DateSelected="DatePicker_DateSelected" MinimumDate="1/1/2000" MaximumDate="1/1/2050"></DatePicker>
+            <Grid Padding="5" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand" VerticalOptions="Start" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="20"  />
+                </Grid.RowDefinitions>
+                <Label TextColor="Wheat" Grid.Column="0" Text="Datum" />
+                <Label TextColor="Wheat"  Grid.Column="1" Text="Od" />
+                <Label TextColor="Wheat"  Grid.Column="2" Text="Do" />
+                <Label TextColor="Wheat"  Grid.Column="3" Text="Vozilo" />
+            </Grid>
+            <ScrollView>
+            <ListView  ItemsSource="{Binding listaTermina}" HasUnevenRows="true" HeightRequest="200" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid Padding="0" BackgroundColor="PowderBlue"  Margin="0" RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Margin="0" Text="{Binding Datum, StringFormat='{0:MMMM dd, yyyy}'}" />
+                                    <Label Grid.Column="1" Margin="0" Text="{Binding Od}" />
+                                    <Label Grid.Column="2" Margin="0" Text="{Binding Do}" />
+                                    <Label Grid.Column="3" Margin="0" Text="{Binding Vozilo}" />
+
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
