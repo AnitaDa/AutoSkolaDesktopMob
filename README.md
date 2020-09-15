@@ -15,7 +15,7 @@
 **U startup-u pokrenuti samo AutoSkola.WinUI i AutoSkola.Mobile.UWP**
 
 
-DESKTOP APP(WinUI)
+## DESKTOP APP(WinUI) ##
 
 
 
@@ -40,7 +40,7 @@ pass: test
 
 
 
-MOBILNA APP
+## MOBILNA APP ##
 
 
 
