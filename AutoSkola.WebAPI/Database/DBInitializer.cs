@@ -24,7 +24,7 @@ namespace AutoSkola.WebAPI.Database
             AddUloga(context);         
             AddKorisnik(context);//dodaje se korisnik,Uloga, KorisnikUloga, Uposlenici,Kandidati, TipUposlenika,UposlTipUposl,LjekskarkoUvjerenje
             AddRasporedPolaganja(context);
-            Console.WriteLine("SVE DODANO!");
+            Console.WriteLine("SVE DODANO :-D!");
         }
 
         private static int GenerisiInt(int from, int to)
@@ -511,7 +511,7 @@ namespace AutoSkola.WebAPI.Database
                 new LjekarskoUvjerenje { DatumVazenja = GenerisiDatum(), DatumIzdavanja = GenerisiDatum(), KandidatId = kandidat55.Entity.Id, SposobanZaObuku = true, Opis = "Sposoban" }
                 );
             context.SaveChanges();
-            Console.WriteLine("Ljekarsko dodano");
+          
 
 
 
